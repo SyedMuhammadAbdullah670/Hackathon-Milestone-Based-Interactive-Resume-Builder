@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Resume Builder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Static Resume Builder By Syed Muhammad Abdullah</h1>
+
+      <!-- Form Section -->
+      <form id="resume-form">
+        <section class="personal-info">
+          <h2>Personal Information</h2>
+          <label for="name">Name:</label>
+          <input type="text" id="name" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" required />
+
+          <!-- Drag-and-Drop Profile Picture Upload -->
+          <label for="profile-pic">Profile Picture:</label>
+          <div id="profile-drop-area" class="drop-area">
+            <p>Drag & Drop an image or click to upload</p>
+            <input
+              type="file"
+              id="profile-pic-upload"
+              accept="image/*"
+              style="display: none"
+            />
+          </div>
+        </section>
+
+        <section class="education-info">
+          <h2>Education</h2>
+          <label for="education">Degree:</label>
+          <input type="text" id="education" required />
+          <label for="institution">Institution:</label>
+          <input type="text" id="institution" required />
+        </section>
+
+        <section class="work-experience-info">
+          <h2>Work Experience</h2>
+          <div id="work-experience-container">
+            <div class="work-experience-group">
+              <label for="work-position">Position:</label>
+              <input type="text" required />
+              <label for="work-company">Company:</label>
+              <input type="text" required />
+              <label for="work-duration">Duration (years):</label>
+              <input type="number" required min="0" step="1" />
+            </div>
+          </div>
+          <button type="button" id="add-work-experience-btn">
+            + Add More Experience
+          </button>
+        </section>
+
+        <section class="skills-info">
+          <h2>Skills</h2>
+          <input type="text" id="skills" placeholder="Comma-separated skills" />
+        </section>
+
+        <button type="submit">Generate Resume</button>
+      </form>
+
+      <!-- Generated Resume Section -->
+      <div id="resume-output" class="resume-output" style="display: none">
+        <h2>Generated Resume</h2>
+        <div id="resume-content">
+          <div class="profile-section">
+            <img
+              id="profile-pic-output"
+              src=""
+              alt="Profile Picture"
+              class="profile-pic"
+            />
+            <h3 id="name-output"></h3>
+            <p id="email-output"></p>
+          </div>
+
+          <div class="education-section">
+            <h4>Education</h4>
+            <p id="education-output"></p>
+            <p id="institution-output"></p>
+          </div>
+
+          <div class="work-section">
+            <h4>Work Experience</h4>
+            <ul id="work-experience-output"></ul>
+          </div>
+
+          <div class="skills-section">
+            <h4>Skills</h4>
+            <div id="skills-output"></div>
+          </div>
+        </div>
+
+        <!-- Edit Resume Button -->
+        <button id="edit-resume-btn">Edit Resume</button>
+        <button id="save-pdf-btn">Download as PDF</button>
+        <button id="share-link-btn">Share Resume</button>
+      </div>
+    </div>
+
+    <!-- Include html2pdf.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.3/html2pdf.bundle.min.js"></script>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
